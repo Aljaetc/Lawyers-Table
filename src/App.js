@@ -10,7 +10,7 @@ const data = useSelector(state => state.data)
   return (
     <div className="App">
       <Typography variant="h2" component="h1" gutterBottom>
-        Welcome to the best lawers app
+        Welcome to the best lawyers app
       </Typography>
       {data && <LawyersTable data={data}/>}
       <Typography variant="h5" gutterBottom>
