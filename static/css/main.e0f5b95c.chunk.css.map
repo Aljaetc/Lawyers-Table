@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,aAAc,CACd,eAAgB,CAChB,gBAAiB,CACjB,iBACF","file":"main.e0f5b95c.chunk.css","sourcesContent":[".App {\n  margin: 0 auto;\n  padding: 2em 1em;\n  max-width: 1450px;\n  text-align: center;\n}"]}
