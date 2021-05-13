@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from 'react-redux'
+import Typography from '@material-ui/core/Typography'
+import UploadButton from './components/UploadButton'
+import LawyersTable from './components/LawyersTable'
+import './dataProcessing/dataValidate'
 
 function App() {
+const data = useSelector(state => state.data)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Typography variant="h2" component="h1" gutterBottom>
+        Welcome to the best lawers app
+      </Typography>
+      {data && <LawyersTable data={data}/>}
+      <Typography variant="h5" gutterBottom>
+        Please, choose the CSV file you want to parse
+      </Typography>
+      <UploadButton />
     </div>
   );
 }

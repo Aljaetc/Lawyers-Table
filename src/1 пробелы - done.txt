@@ -1,0 +1,6 @@
+1 пробелы - done
+2 unique phone and email - 
+3 age - done
+4 experience - done
+5 yearly income - 
+9 phone - done
