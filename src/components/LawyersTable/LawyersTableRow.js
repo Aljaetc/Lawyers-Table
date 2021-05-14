@@ -13,22 +13,11 @@ const useStyles = makeStyles({
 export default function LawyersTableRow({ row }) {
   const classes = useStyles()
 
-  const cells = ['id', 'phone']
+  const cells = ['id', 'fullName', 'phone', 'email', 'age', 'experience', 'yearlyIncome', 'hasChildren', 'licenseStates', 'expirationDate', 'licenseNumber', 'duplicate']
 
   return (
     <TableRow>
-      <TableCell>{row.id}</TableCell>
-      <TableCell align="right">{row.fullName}</TableCell>
-      <TableCell align="right" className={row.errors.includes('phone') ? classes.error : ''}>{row.phone}</TableCell>
-      <TableCell align="right" className={row.errors.includes('email') ? classes.error : ''}>{row.email}</TableCell>
-      <TableCell align="right" className={row.errors.includes('age') ? classes.error : ''}>{row.age}</TableCell>
-      <TableCell align="right" className={row.errors.includes('experience') ? classes.error : ''}>{row.experience}</TableCell>
-      <TableCell align="right" className={row.errors.includes('yearlyIncome') ? classes.error : ''}>{row.yearlyIncome}</TableCell>
-      <TableCell align="right" className={row.errors.includes('hasChildren') ? classes.error : ''}>{row.hasChildren}</TableCell>
-      <TableCell align="right" className={row.errors.includes('licenseStates') ? classes.error : ''}>{row.licenseStates}</TableCell>
-      <TableCell align="right" className={row.errors.includes('expirationDate') ? classes.error : ''}>{row.expirationDate}</TableCell>
-      <TableCell align="right" className={row.errors.includes('licenseNumber') ? classes.error : ''}>{row.licenseNumber}</TableCell>
-      <TableCell align="right">{row.duplicate}</TableCell>
+      {cells.map(i => <TableCell align="right" key={i} className={row.errors.includes(i) && i !== 'id' && i!=='fullName' && i!== 'duplicate' ? classes.error : ''}>{row[i]}</TableCell>)}
     </TableRow>
   )
 }
