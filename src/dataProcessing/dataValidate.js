@@ -6,11 +6,11 @@ var validate = require("validate.js")
 
 validate.extend(validate.validators.datetime, {
   parse: function(value, options) {
-    return +moment.utc(value);
+    return +moment.utc(value, ["YYYY-MM-DD", "MM/DD/YYYY"], true)
   },
   format: function(value, options) {
-    var format = "YYYY-MM-DD" || "MM/DD/YYYY";
-    return moment.utc(value).format(format);
+    var format = "YYYY-MM-DD"
+    return moment.utc(value).format(format)
   }
 });
 
@@ -18,7 +18,7 @@ const constraints = {
   age: {
     numericality: {
       onlyInteger: true,
-      greaterThan: 21,
+      greaterThan: 20,
     }
   },
   experience: function(value, attributes) {
@@ -68,7 +68,7 @@ const constraints = {
   expirationDate: {
     presence: true,
     datetime: {
-      dateOnly: true,
+      // dateOnly: true,
       earliest: moment.utc()
     }
   }

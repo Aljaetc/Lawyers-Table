@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles'
+import  TableContainer  from '@material-ui/core/TableContainer'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -10,9 +11,11 @@ import LawyersTableRow from './LawyersTableRow'
 
 
 const useStyles = makeStyles({
+  tableWrapper: {
+    marginBottom: '2em',
+  },
   table: {
     minWidth: 650,
-    marginBottom: '2em',
     '& th': {
       background: '#9999FF',
       borderLeft: '1px solid #CCCCCC',
@@ -30,7 +33,8 @@ export default function LawyersTable({ data }) {
   const classes = useStyles();
 
   return (
-      <Table className={classes.table} size="small" aria-label="simple table" component={Paper}>
+    <TableContainer component={Paper} className={classes.tableWrapper}>
+      <Table className={classes.table} size="small" aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
@@ -51,5 +55,6 @@ export default function LawyersTable({ data }) {
           {data.map(row => <LawyersTableRow row={row}  key={row.id} />)}
         </TableBody>
       </Table>
+    </TableContainer>
   );
 }

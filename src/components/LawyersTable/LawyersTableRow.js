@@ -13,6 +13,8 @@ const useStyles = makeStyles({
 export default function LawyersTableRow({ row }) {
   const classes = useStyles()
 
+  const cells = ['id', 'phone']
+
   return (
     <TableRow>
       <TableCell>{row.id}</TableCell>

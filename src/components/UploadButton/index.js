@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
-import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { insertDataFromCSV } from '../../redux/actions'
 
@@ -21,14 +20,6 @@ export default function UploadButton({ setData }) {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const handleInputOnChange = (e) => {
-    dispatch(insertDataFromCSV(e))
-  }
-
-  useEffect(() => {
-    const input = document.getElementById('contained-button-file')
-    input.addEventListener('input', handleInputOnChange)
-  })
 
   return (
     <div className={classes.root}>
@@ -36,6 +27,7 @@ export default function UploadButton({ setData }) {
         className={classes.input}
         id="contained-button-file"
         type="file"
+        onChange={e => dispatch(insertDataFromCSV(e))}
       />
       <label htmlFor="contained-button-file">
         <Button variant="contained" color="primary" component="span">

@@ -27,7 +27,7 @@ export const stateMap = {
   "Montana": "MT",
   "Nebraska": "NE",
   "Nevada": "NV",
-  "New": "NY",
+  "New York": "NY",
   "North": "ND",
   "Ohio": "OH",
   "Oklahoma": "OK",
